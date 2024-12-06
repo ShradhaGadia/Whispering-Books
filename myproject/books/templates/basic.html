@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,108 +9,113 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
-            background-color: #b8783bca;
-            color: #dedec0;
-            font-family: Georgia;
-            margin: 0;
-            padding: 0;
+            background-image: url("{% static 'laptop.jpeg' %}");
+            background-color: rgba(255, 255, 255, 0.2); 
+            background-blend-mode: lighten;
         }
-        .header {
-            background-color: #654321;
-            color: #dedec0;
-            padding: 10px;
-        }
-        .navigation {
-            text-align: center;
-            padding: 10px;
-            font-size: 20px;
-            margin-top: 25px;
-        }
-        .navigation a {
-            color: #dedec0;
-            text-decoration: none;
-            margin: 0 10px;
-            
-        }
-        .search-bar {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .search-bar input[type="text"] {
-            padding: 10px;
-            border: 1px solid #dedec0;
-            border-radius: 5px;
-            width: 300px;
-            margin-right: 10px;
-        }
-        .search-bar button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #654321;
-            color: #dedec0;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .content {
-            padding: 20px;
-        }
-        .book-title {
-            font-family: 'Forte', cursive;
-            font-size: 36px;
-            margin-top: 20px;
-        }
-        
-        
-        .action-icons a {
+
+.header {
+    background-color: #543e31;
+    color: #c1a389;
+    padding: 10px;
+}
+
+.navigation {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 25px;
+}
+.navigation a {
     color: #dedec0;
     text-decoration: none;
-    margin: 0 5px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    background-color: #654321;
-    transition: all 0.3s ease;
+    margin: 0 10px;
+    
+}
+.search-bar {
+    text-align: center;
+    padding: 20px 0;
+}
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #dedec0;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 10px;
+}
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #543e31;
+    color: #dedec0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-bar button:hover{
+    background-color:#543e31;
+}
+.content {
+    padding: 20px;
+}
+.book-title {
+    font-family: 'Forte', cursive;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+
+.action-icons a {
+color: #dedec0;
+text-decoration: none;
+margin: 0 5px;
+padding: 5px 10px;
+border-radius: 3px;
+background-color: #543e31;
+transition: all 0.3s ease;
 }
 
 .action-icons a:hover {
-    background-color: #543214;
+background-color: #543e31;
 }
 
 .action-icons i {
-    cursor: pointer;
+cursor: pointer;
 }
-        
-        .pagination {
-    margin-top: 20px;
-    text-align: center;
+
+.pagination {
+margin-top: 20px;
+text-align: center;
 }
 
 .pagination a {
-    color: #dedec0;
-    text-decoration: none;
-    margin: 0 5px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    background-color: #654321;
-    transition: all 0.3s ease;
+color: #dedec0;
+text-decoration: none;
+margin: 0 5px;
+padding: 5px 10px;
+border-radius: 3px;
+background-color: #543e31;
+transition: all 0.3s ease;
 }
 
 .pagination a:hover {
-    background-color: #543214;
+background-color: #543e31;
 }
 
 .pagination .current {
-    color: #dedec0;
-    font-weight: bold;
+color: #dedec0;
+font-weight: bold;
 }
 .pagination-container {
-    margin: 0 auto; 
-    width: fit-content; 
+margin: 0 auto; 
+width: fit-content; 
 }
 
 .pagination span {
-    display: inline-block;
-    margin: 0 5px;
+display: inline-block;
+margin: 0 5px;
 }
+
+
 
     </style>
 </head>

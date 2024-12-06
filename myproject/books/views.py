@@ -12,7 +12,7 @@ def home(request):
         books = Books.objects.filter(title__icontains=query) or Books.objects.filter(author__icontains=query) or Books.objects.filter(genre__icontains=query)
     else:
        books=Books.objects.all()
-    paginator=Paginator(books,5)
+    paginator=Paginator(books,10)
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
     return render(request, 'bookpage.html', {'page': 'Home', 'books':page_obj, 'query': query})

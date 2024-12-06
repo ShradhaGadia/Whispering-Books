@@ -27,5 +27,6 @@ urlpatterns = [
     path('updatesale/<int:sale_id>/',updatesale,name="updatesale"),
     path('deletebook/<int:book_id>/',deletebook,name="deletebook"),
     path('deletesale/<int:sale_id>/',deletesale,name="deletesale"),
+    path('recommend/',recommend,name="getRec"),
     path('admin/', admin.site.urls),
 ]

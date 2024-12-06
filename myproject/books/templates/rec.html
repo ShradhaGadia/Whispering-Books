@@ -1,0 +1,58 @@
+{% extends "basic.html" %}
+
+{% block start %}
+
+<!-- Search bar section -->
+<div class="search-bar">
+    <form id="searchForm" method="GET" action="/recommend/">
+        <input type="text" id="searchQuery" name="book_title" placeholder="Search for a book..." class="input-field" />
+
+        <select id="genreSelect" name="genre" class="input-field" style="padding: 10px; background-color: #f4f4f4; color: #333; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; width: 100px; transition: all 0.3s ease;">
+            <option value="popular">All</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="drama">Drama</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="horror">Horror</option>
+            <option value="mystery">Mystery</option>
+            <option value="poetry">Poetry</option>
+            <option value="romance">Romance</option>
+            <option value="thriller">Thriller</option>
+        </select>
+
+        <button type="submit" class="search-button">Search</button>
+    </form>
+</div>
+
+
+
+<div id="results" class="results-list" style="margin-top: 20px;">
+    {% if records %}
+        {% for book in records %}
+            <div class="book-item" style="border-bottom: 1px solid #ddd; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+                <div class="book-info" style="max-width: 80%;">
+                    <h3 style="font-size: 1.2rem; color: #333;">{{ book.Title }}</h3>
+                    <b><i><p class="author" style="font-size: 1rem; color: #777;">Author: {{ book.Author }}</p></i></b>
+                    <p class="description" style="font-size: 0.9rem; color: #555; margin-top: 5px; line-height: 1.4;">{{ book.Description }}</p>
+                    {% if book.AverageRating and book.AverageRating != "No Rating" %}
+                    <p class="rating" style="font-size: 1rem; color: #333; margin-top: 5px;">
+                        Average Rating: {{ book.AverageRating }}
+                    </p>
+                    {% endif %}
+                    
+                   
+                </div>
+                <a href="{{ book.PreviewLink }}" target="_blank" style="font-size: 1rem; color: #3498db; margin-top: 5px; text-decoration: none;">
+                <img src="{{ book.Thumbnail }}" alt="{{ book.Title }}" style="max-width: 100px; max-height: 150px; object-fit: cover; border-radius: 8px;"/></a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.core.paginator import Paginator
 
+from .rec_book import get_recommendations
 # Create your views here.
 
 
@@ -92,3 +93,17 @@ def addsale(request, book_id):
         Sales.objects.create(book=book, quantity_sold=quantity_sold, sold=sold)
         return redirect('salespage')  
     return render(request, 'add_sale.html', {'book': book})
+
+def recommend(request, book_title=None, genre=None):
+
+    if request.method == 'GET':
+        book_title = request.GET.get('book_title')
+        genre = request.GET.get('genre')
+
+        if book_title and genre:  
+            recommendations = get_recommendations(book_title, genre)
+            return render(request, 'rec.html', {'records': recommendations})
+
+    return render(request, 'rec.html')
+    
+    
